@@ -1,3 +1,3 @@
-# react-native-app
+# react-native-blog-app
 
-> 基于 React Native 实现跨平台开发 App 的示例项目。
+A cross-platform blog app sample base on React Native.

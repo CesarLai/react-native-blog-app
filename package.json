@@ -1,9 +1,9 @@
 {
-  "name": "react-native-app",
+  "name": "react-native-blog-app",
   "version": "0.0.1",
   "main": "index.js",
   "private": true,
-  "description": "基于 React Native 实现跨平台开发 App 的示例项目。",
+  "description": "A cross-platform blog app sample base on React Native.",
   "author": "Cesar Lai",
   "license": "MIT",
   "homepage": ".",
