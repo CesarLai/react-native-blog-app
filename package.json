@@ -31,15 +31,23 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "@react-native-community/eslint-config": "^1.1.0",
     "@types/jest": "^25.2.3",
+    "@types/node": "^16.9.0",
     "@types/react-native": "^0.63.2",
     "@types/react-native-vector-icons": "^6.4.6",
     "@types/react-test-renderer": "^16.9.2",
+    "@types/webpack-env": "^1.16.2",
     "babel-jest": "^25.1.0",
+    "commitizen": "^4.2.4",
     "eslint": "^6.5.1",
+    "husky": "^7.0.2",
     "jest": "^25.1.0",
+    "lint-staged": "^11.1.2",
     "metro-react-native-babel-preset": "^0.59.0",
+    "prettier": "^2.3.2",
     "react-test-renderer": "16.13.1",
     "typescript": "^3.8.3"
   },
@@ -55,6 +63,22 @@
       "jsx",
       "json",
       "node"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "sh ./blockfieldlint.sh  && lint-staged && npm run eslint",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js?(x)}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{ts?(x)}": [
+      "prettier --parser=typescript --write",
+      "git add"
     ]
   }
 }
