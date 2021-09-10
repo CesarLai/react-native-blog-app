@@ -98,6 +98,7 @@ def enableSeparateBuildPerCPUArchitecture = false
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
  */
+def enableProguardInDebugBuilds = false
 def enableProguardInReleaseBuilds = false
 
 /**
@@ -136,6 +137,10 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+        ndk {
+            abiFilters "armeabi-v7a", "x86","armeabi"
+        }
     }
     splits {
         abi {
@@ -152,22 +157,25 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
-//        release {
-//            storeFile file('release.keystore')
-//            storePassword 'cl-rn-app'
-//            keyAlias 'androidreleasekey'
-//            keyPassword 'cl-rn-app'
-//        }
+        release {
+            storeFile file('release.keystore')
+            storePassword 'cl-rn-app-2021'
+            keyAlias 'androidreleasekey'
+            keyPassword 'cl-rn-app-2021'
+        }
     }
     buildTypes {
         debug {
+            minifyEnabled enableProguardInDebugBuilds
+            debuggable true
             signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
@@ -186,14 +194,22 @@ android {
 
         }
     }
+
+    sourceSets.main{
+        jni.srcDirs = []
+        jniLibs.srcDirs = ['libs']
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    //noinspection GradleDynamicVersion
-    implementation "com.facebook.react:react-native:+"  // From node_modules
 
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    implementation "com.facebook.react:react-native:+"  // From node_modules
 
     implementation project(':react-native-splash-screen')
     implementation project(':react-native-vector-icons')

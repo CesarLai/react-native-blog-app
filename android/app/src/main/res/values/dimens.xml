@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splash_bg_round_size">280dp</dimen>
+    <dimen name="splash_bg_round_radius">140dp</dimen>
+    <dimen name="splash_title_font_size">32dp</dimen>
+</resources>

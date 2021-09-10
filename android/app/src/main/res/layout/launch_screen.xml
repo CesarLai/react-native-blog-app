@@ -1,15 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textColor="@color/primary_color"
-        android:textSize="36dp"
-        android:textFontWeight="600"
-        android:text="@string/app_name"/>
-</RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_title_round"
+        android:layout_width="@dimen/splash_bg_round_size"
+        android:layout_height="@dimen/splash_bg_round_size"
+        android:background="@drawable/splash_bg_round"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/splash_screen_title"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/splash_title_font_size"
+            app:layout_constraintBottom_toTopOf="@id/text_subtitle"
+            app:layout_constraintEnd_toEndOf="@+id/layout_title_round"
+            app:layout_constraintStart_toStartOf="@id/layout_title_round"
+            app:layout_constraintTop_toTopOf="@id/layout_title_round"
+            app:layout_constraintVertical_chainStyle="packed"/>
+
+        <TextView
+            android:id="@+id/text_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_alignBottom="@id/text_title"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/splash_screen_subtitle"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/splash_title_font_size"
+            app:layout_constraintBottom_toBottomOf="@id/layout_title_round"
+            app:layout_constraintEnd_toEndOf="@+id/layout_title_round"
+            app:layout_constraintStart_toStartOf="@id/layout_title_round"
+            app:layout_constraintTop_toBottomOf="@id/text_title"
+            app:layout_constraintVertical_chainStyle="packed"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

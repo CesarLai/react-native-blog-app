@@ -1,3 +1,5 @@
 <resources>
-  <string name="app_name">react-native-blog-app</string>
+  <string name="app_name">RN Blog App</string>
+  <string name="splash_screen_title">React Native</string>
+  <string name="splash_screen_subtitle">Blog App</string>
 </resources>
