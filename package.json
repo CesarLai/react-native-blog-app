@@ -13,8 +13,10 @@
     "start": "react-native start --port 8081",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "build:rn-android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/assets",
-    "build:android": "cd android && ./gradlew assembleRelease"
+    "prebuild:android": "rm -rf android/app/src/main/assets/build && mkdir android/app/src/main/assets/build",
+    "build:rn-android": "yarn prebuild:android && react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/build/index.android.bundle --assets-dest android/app/src/main/assets/build",
+    "build:native-android": "cd android && ./gradlew assembleRelease",
+    "build:android": "yarn build:rn-android && yarn build:native-android"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
