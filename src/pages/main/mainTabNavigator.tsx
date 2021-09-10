@@ -2,8 +2,8 @@ import React from 'react'
 import { Platform } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import * as ColorConstants from '../../constants/color'
-import Iconfont from '../../fonts'
+import * as Colors from '@/constants/color'
+import Iconfont from '@/fonts'
 
 import HomeTabPage from './homeTabPage'
 import MessageTabPage from './messageTabPage'
@@ -16,8 +16,8 @@ const MainTabNavigator = () => {
     <BottomTabs.Navigator
       initialRouteName="Home"
       tabBarOptions={{
-        inactiveTintColor: ColorConstants.TAB_INACTIVE_COLOR,
-        activeTintColor: ColorConstants.TAB_ACTIVE_COLOR,
+        inactiveTintColor: Colors.TAB_INACTIVE_COLOR,
+        activeTintColor: Colors.TAB_ACTIVE_COLOR,
         style: {
           height: Platform.OS === 'ios' ? 79 : 65
         },
