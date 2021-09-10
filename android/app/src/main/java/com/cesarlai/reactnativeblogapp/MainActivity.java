@@ -1,4 +1,4 @@
-package com.cesarlai.reactnativeapp;
+package com.cesarlai.reactnativeblogapp;
 
 import android.os.Bundle;
 
@@ -19,6 +19,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "reactnativeapp";
+    return "ReactNativeBlogApp";
   }
 }

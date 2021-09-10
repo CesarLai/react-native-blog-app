@@ -8,12 +8,11 @@ buildscript {
         targetSdkVersion = 29
     }
     repositories {
-        // 阿里云国内镜像
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
-        // google()
-        // jcenter()
+//        google()
+//        jcenter()
     }
     dependencies {
         classpath("com.android.tools.build:gradle:3.5.3")
@@ -37,7 +36,6 @@ allprojects {
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
-
         // google()
         // jcenter()
         maven { url 'https://www.jitpack.io' }
